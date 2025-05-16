@@ -1,16 +1,92 @@
-# lanka_bus_ride_flutter
+# 🚌 LankaBusRide
 
-A new Flutter project.
+Lanka Bus Ride is a Flutter-based mobile application that allows users to view available bus routes across Sri Lanka. The app supports real-time route listing, filtering, user profile display, and search functionality.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📁 Project Structure
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+The project follows a clean layered architecture:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+lib/
+│
+├── core/ # Common utilities, themes, constants
+│
+├── data/
+│ ├── models/ # Data models for Bus, User
+│ ├── datasources/ # Remote API data sources
+│ └── repositories/ # Repository implementations
+│
+├── domain/
+│ ├── entities/ # Core business models (Bus, User)
+│ ├── repositories/ # Abstract repositories
+│ └── usecases/ # Business logic for fetching data
+│
+├── presentation/
+│ ├── blocs/ # BLoC logic and states/events
+│ ├── pages/ # UI screens (Home, Search, Profile)
+│ └── widgets/ # Reusable UI components
+│
+├── injection/ # Dependency injection setup
+└── main.dart # App entry point
+
+## 🧪 Architecture Pattern
+
+This app uses:
+
+✅ MVVM pattern
+✅ BLoC state management
+✅ Repository Pattern
+✅ Clean Architecture Principles
+✅ Dependency Injection (get_it)
+
+---
+
+## 🔍 ScreenShots
+
+<img src = "branchscreenshot/LankaBusRide01.png"  height="300" /> <img src = "branchscreenshot/LankaBusRide02.png"  height="300" /> <img src = "branchscreenshot/LankaBusRide03.png"  height="300" /> 
+
+---
+## 📱 Features
+
+- View recent and top bus routes
+- Filter buses by route number
+- User profile display from API
+- Clean and scalable MVVM + BLoC architecture
+- Dependency Injection with `get_it`
+
+---
+
+## 🧪 Testing
+
+Tests live under the `test/` folder.  
+
+---
+
+📦 API Services
+
+Bus data: Mocky API
+User data: Mocky API
+APIs are consumed via ApiServiceImpl using the http package.
+
+---
+
+## 🛠️ Requirements
+
+- Flutter SDK
+- Android Studio
+- Device or Emulator
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙋‍♂️ Author
+
+- Randika Wanninayaka ([@randikawann](https://github.com/randikawann))
+

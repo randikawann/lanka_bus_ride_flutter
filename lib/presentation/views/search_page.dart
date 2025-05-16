@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../domain/entities/bus.dart';
 import '../blocs/bus_bloc.dart';
 import '../blocs/bus_state.dart';
+import 'widgets/bus_list_view.dart';
+import 'widgets/route_choice_chips.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -29,7 +32,7 @@ class _SearchPageState extends State<SearchPage> {
                 topRoutes.add(bus.routeNumber);
               }
             }
-            final filteredBuses = selectedRoute == null
+            final List<Bus> filteredBuses = selectedRoute == null
                 ? []
                 : buses.where((b) => b.routeNumber == selectedRoute).toList();
 
@@ -37,22 +40,14 @@ class _SearchPageState extends State<SearchPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 16),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Wrap(
-                    spacing: 10,
-                    children: topRoutes.map((route) {
-                      return ChoiceChip(
-                        label: Text(route),
-                        selected: selectedRoute == route,
-                        onSelected: (_) {
-                          setState(() {
-                            selectedRoute = route;
-                          });
-                        },
-                      );
-                    }).toList(),
-                  ),
+                RouteChoiceChips(
+                  routes: topRoutes,
+                  selectedRoute: selectedRoute,
+                  onSelected: (route) {
+                    setState(() {
+                      selectedRoute = route;
+                    });
+                  },
                 ),
                 const SizedBox(height: 20),
                 const Padding(
@@ -63,26 +58,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 ),
                 Expanded(
-                  child: ListView.builder(
-                    padding: const EdgeInsets.only(top: 8),
-                    itemCount: filteredBuses.length,
-                    itemBuilder: (_, index) {
-                      final bus = filteredBuses[index];
-                      return ListTile(
-                        leading: const Icon(Icons.directions_bus),
-                        title: Text('${bus.source} → ${bus.destination}'),
-                        subtitle: Text(
-                            '${bus.departure} - ${bus.arrival} (${bus.duration})'),
-                        trailing: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(bus.routeNumber, style: const TextStyle(color: Colors.green)),
-                            Text(bus.companyName, style: const TextStyle(fontSize: 12)),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
+                  child: BusListView(buses: filteredBuses),
                 ),
               ],
             );

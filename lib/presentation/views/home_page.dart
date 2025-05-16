@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
                 } else if (state is UserLoaded) {
                   final user = state.user;
                   return ListTile(
-                    leading: CircleAvatar(
+                    leading: const CircleAvatar(
                       child: Icon(Icons.person),
                     ),
                     title: Text(user.name),

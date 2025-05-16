@@ -6,7 +6,7 @@ import 'presentation/blocs/bus_bloc.dart';
 import 'presentation/blocs/bus_event.dart';
 import 'presentation/blocs/user_bloc.dart';
 import 'presentation/blocs/user_event.dart';
-import 'presentation/views/home_page.dart';
+import 'presentation/views/main_screen.dart';
 
 
 void main() {
@@ -17,7 +17,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.teal,
         ),
-        home: const HomePage(),
+        home: const MainScreen(),
       ),
     );
   }

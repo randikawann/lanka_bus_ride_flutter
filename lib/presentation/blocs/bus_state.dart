@@ -27,3 +27,12 @@ class BusError extends BusState {
   @override
   List<Object> get props => [message];
 }
+
+class SelectedRouteUpdated extends BusState {
+  final String selectedRouteNumber;
+
+  SelectedRouteUpdated(this.selectedRouteNumber);
+
+  @override
+  List<Object> get props => [selectedRouteNumber];
+}

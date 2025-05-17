@@ -75,17 +75,17 @@ APIs are consumed via ApiServiceImpl using the http package.
 ## 📦 Dependencies
 
 ### dependencies
-flutter_bloc: ^8.1.3           # For BLoC state management
-equatable: ^2.0.5              # For value comparison in states/events
-get_it: ^7.6.4                 # For dependency injection
-http: ^0.13.6                  # For API requests
-json_annotation: ^4.8.1        # For model serialization
+#### flutter_bloc: ^8.1.3           - For BLoC state management
+#### equatable: ^2.0.5              - For value comparison in states/events
+#### get_it: ^7.6.4                 - For dependency injection
+#### http: ^0.13.6                  - For API requests
+#### json_annotation: ^4.8.1        - For model serialization
 
 ### dev_dependencies
-bloc_test: ^9.1.5              # For testing BLoC
-mockito: ^5.4.4                # For mocking classes in tests
-build_runner: ^2.4.6           # For code generation
-json_serializable: ^6.7.1      # For generating model from JSON
+#### bloc_test: ^9.1.5              - For testing BLoC
+#### mockito: ^5.4.4                - For mocking classes in tests
+#### build_runner: ^2.4.6           - For code generation
+#### json_serializable: ^6.7.1      - For generating model from JSON
 
 ---
 
